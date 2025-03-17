@@ -58,6 +58,14 @@ new Vue({
             }
             return false;
         },
+        canAddCard(index) {
+            if (index === 0) {
+                return this.columns[0].cards.length < 3; // Максимум 3 карточки в первом столбце
+            } else if (index === 1) {
+                return this.columns[1].cards.length < 5; // Максимум 5 карточек во втором столбце
+            }
+            return true; // В третьем столбце нет ограничений
+        },
         saveData() {
             localStorage.setItem('noteAppData', JSON.stringify(this.columns));
         },

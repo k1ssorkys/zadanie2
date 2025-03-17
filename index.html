@@ -39,13 +39,15 @@
 
             </div>
 
-            <button @click="addCard(index)">Добавить карточку</button>
+            <button v-if="canAddCard(index)" @click="addCard(index)">Добавить карточку</button>
 
         </div>
 
         <p v-if="isColumnLocked(index)">Столбец заблокирован для редактирования</p>
 
     </div>
+
+    <div class="clear"></div>
 
 </div>
 
